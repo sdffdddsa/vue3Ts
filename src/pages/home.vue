@@ -6,14 +6,11 @@
 </template>
 
 <script setup lang="ts">
-import { message } from 'ant-design-vue';
-fetch('/api/user/hi',{
-    headers:{
-        apikey:import.meta.env.VITE_API_HEADER
-    }
-})
-.then(res=>res.json()
-.then(result=>{
-    message.info(result.data.message)
-}))
+import {userHi} from '@/api/user'
+
+function sayHi() {
+    const data = userHi()
+    console.log(data)
+}
+sayHi()
 </script>

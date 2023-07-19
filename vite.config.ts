@@ -3,7 +3,7 @@ import Components from 'unplugin-vue-components/vite'//按需引入UI组件
 import AutoImport from 'unplugin-auto-import/vite'//按需引入vue插件
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-
+import {resolve} from 'path'
 import {
   AntDesignVueResolver,
 } from 'unplugin-vue-components/resolvers'
@@ -34,9 +34,9 @@ export default defineConfig({
       dts:true//ts识别文件用
     })
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+  resolve:{
+    alias:{
+      '@':resolve(__dirname,'src')//路径省略
     }
-  }
+  },
 })
